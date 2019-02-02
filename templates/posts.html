@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-md-6">
+        {% if object_list %}
+            <ul>
+                {% for object in object_list %}
+                    <li> <h2> {{ object.title }} </h2> 
+                        <h4> {{ object.pub_date }} </h4>
+                        <h4> {{ object.category }} </h4>
+                        <a href=" {% url 'post_detail' object.pk %} "> See more... </a>
+
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3>Oops! It seems like there's nothing in the database...</h3>
+        {% endif %}
+    </div>
+{% endblock content %}
